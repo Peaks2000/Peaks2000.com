@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accurate Clock</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #clock {
+            font-size: 5vw;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Real-time clock display -->
+    <div id="clock"></div>
+
+    <script>
+        async function fetchServerTime() {
+            try {
+                // Fetch server time from server_time.php
+                const response = await fetch('server_time.php');
+                const data = await response.json();
+                return {
+                    hour: data.hour,
+                    minute: data.minute,
+                    second: data.second,
+                    date: new Date(data.date)
+                };
+            } catch (error) {
+                console.error('Error fetching server time:', error);
+                return null; // Return null if there's an error
+            }
+        }
+
+        async function updateClock() {
+            const serverTimeData = await fetchServerTime();
+
+            if (serverTimeData) {
+                // Get user's local time
+                const userTime = new Date();
+
+                // Use the server's minutes and seconds, but the user's hour and date
+                const combinedTime = new Date(
+                    serverTimeData.date.getFullYear(),
+                    serverTimeData.date.getMonth(),
+                    serverTimeData.date.getDate(),
+                    userTime.getHours(),
+                    serverTimeData.minute,
+                    serverTimeData.second
+                );
+
+                // Format time to display
+                const hours = String(combinedTime.getHours()).padStart(2, '0');
+                const minutes = String(combinedTime.getMinutes()).padStart(2, '0');
+                const seconds = String(combinedTime.getSeconds()).padStart(2, '0');
+
+                document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+            } else {
+                // In case of error, fall back to displaying user local time
+                const now = new Date();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+            }
+        }
+
+        // Call updateClock every second
+        setInterval(updateClock, 1000);
+        updateClock(); // Initial call to display immediately
+    </script>
+
+</body>
+</html>

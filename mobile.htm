@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peaks2000 Mobile</title>
+    <style>
+        /* General styling for mobile */
+        body {
+            font-family: Arial, sans-serif;
+            color: #ff5555;
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            margin-top: 20px;
+            color: #ff5555;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin: 10px;
+        }
+
+        /* Profile Picture */
+        .profile-pic {
+            width: 80px; /* Adjusted for mobile */
+            height: 80px; /* Adjusted for mobile */
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        /* Clock styling */
+        #clock {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #ff5555;
+        }
+
+        /* Search bar styling */
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%; /* Adjusted for mobile */
+            max-width: 400px; /* Adjusted for mobile */
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .search-bar form {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background-color: #333; /* Consistent background for the entire bar */
+            border-radius: 25px;
+        }
+
+        .search-bar input[type="text"] {
+            flex-grow: 1;
+            padding: 12px 15px; /* Increased padding for better touch target */
+            border: none;
+            background-color: #333; /* Same background color as the form */
+            color: #fff;
+            outline: none;
+            font-size: 16px;
+            border-radius: 25px 0 0 25px; /* Rounded corners for seamless look */
+        }
+
+        .search-bar input[type="text"]:focus {
+            background-color: #333; /* Keep the same color on focus */
+        }
+
+        /* Search Button Styling */
+        .search-button {
+            background-color: #ff5555; /* Red color for the button */
+            border: none;
+            color: #fff;
+            padding: 12px; /* Increased padding for better touch target */
+            cursor: pointer;
+            font-size: 18px;
+            width: 50px; /* Fixed width for a circular look */
+            height: 50px; /* Fixed height for a circular look */
+            border-radius: 50%; /* Fully rounded button */
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center icon in the button */
+            margin-left: -5px; /* Slightly overlap with input field */
+        }
+
+        /* Link styling */
+        a {
+            display: inline-block;
+            margin-top: 60px; /* Added spacing to move it further down */
+            padding: 10px 20px;
+            background-color: #ff5555;
+            color: #000;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #ff3333;
+        }
+    </style>
+    <script>
+        // Clock function
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        setInterval(updateClock, 1000); // Update the clock every second
+        window.onload = updateClock;
+    </script>
+</head>
+<body>
+    <header>
+        <!-- Profile Picture -->
+        <img src="img/pfp.jpg" alt="Peaks2000" class="profile-pic">
+        <h1>Welcome to Peaks2000 Mobile</h1>
+    </header>
+
+    <!-- Clock -->
+    <div id="clock"></div>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <form action="https://duckduckgo.com/" method="get">
+            <input type="text" name="q" placeholder="Search with DuckDuckGo">
+            <button type="submit" class="search-button">🔍</button> <!-- Styled as a red circular button -->
+        </form>
+    </div>
+
+    <!-- Back to Desktop Version -->
+    <a href="index.html">Back to Desktop Version</a>
+</body>
+</html>

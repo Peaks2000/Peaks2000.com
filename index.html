@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peaks2000</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            color: #ff5555;
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            margin-top: 20px;
+            color: #ff5555;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin: 10px;
+        }
+
+        /* Profile Picture */
+        .profile-pic {
+            width: 108px;
+            height: 108px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        /* Clock styling */
+        #clock {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #ff5555;
+        }
+
+        /* Search bar styling */
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 70%;
+            max-width: 600px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .search-bar form {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background-color: #444; /* Consistent background for elegance */
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+        }
+
+        .search-bar input[type="text"] {
+            flex-grow: 1;
+            padding: 12px 15px; /* Increased padding for better touch target */
+            border: none;
+            background-color: #444; /* Same as form for a seamless look */
+            color: #fff;
+            outline: none;
+            font-size: 16px;
+            border-radius: 25px 0 0 25px; /* Rounded corners for seamless look */
+            transition: background-color 0.3s ease; /* Transition for background color */
+        }
+
+        .search-bar input[type="text"]:focus {
+            background-color: #555; /* Darker on focus */
+        }
+
+        /* Search Button Styling */
+        .search-button {
+            background-color: #ff5555; /* Red color for the button */
+            border: none;
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 50px; /* Fixed width for a circular look */
+            height: 50px; /* Fixed height for a circular look */
+            border-radius: 50%; /* Fully rounded button */
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center icon in the button */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transition for background and scale */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Initial shadow */
+        }
+
+        .search-button:hover {
+            background-color: #ff3333; /* Darker red on hover */
+            transform: scale(1.1); /* Scale up on hover */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+        }
+
+        /* Link styling */
+        a {
+            display: inline-block;
+            margin-top: 20px; /* Adjusted spacing to move it further down */
+            padding: 10px 20px;
+            background-color: #ff5555;
+            color: #000;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for effects */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Initial shadow */
+            margin-left: 5px; /* Reduced spacing between buttons */
+            margin-right: 5px; /* Reduced spacing between buttons */
+        }
+
+        a:hover {
+            background-color: #ff3333; /* Darker red on hover */
+            transform: scale(1.05); /* Scale up on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+        }
+
+        /* Compatibility for older browsers */
+        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+            /* Styles specific for older browsers */
+            .search-button {
+                filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)); /* Shadow effect */
+            }
+        }
+    </style>
+    <script>
+        // Clock function
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        setInterval(updateClock, 1000); // Update the clock every second
+        window.onload = updateClock;
+    </script>
+</head>
+<body>
+    <header>
+        <!-- Profile Picture -->
+        <img src="img/pfp.jpg" alt="Peaks2000" class="profile-pic">
+        <h1>Welcome to Peaks2000.com</h1>
+    </header>
+
+    <!-- Clock -->
+    <div id="clock"></div>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <form action="https://duckduckgo.com/" method="get">
+            <input type="text" name="q" placeholder="Search with DuckDuckGo">
+            <button type="submit" class="search-button">🔍</button> <!-- Styled as a red circular button -->
+        </form>
+    </div>
+
+    <!-- Mobile Site Button -->
+    <a href="mobile.htm">Mobile Site (Beta)</a>
+    
+    <!-- Play Pacman Button -->
+    <a href="pacman.htm">Play Classic Pacman Game</a>
+    
+    <!-- Open OG Page Button -->
+    <a href="OG.htm">Open OG Page</a>
+</body>
+</html>

@@ -1,6 +1,6 @@
 <h1>My Personal Website</h1>
 
-<h2>peaks2000.com</h2>
+<h2>(Peaks2000.com)[peaks2000.com]</h2>
 
 Features:
 

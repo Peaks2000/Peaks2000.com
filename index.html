@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peaks2000</title>
     <style>
-        /* General styling */
         body {
             font-family: Arial, sans-serif;
             color: #ff5555;
@@ -33,7 +32,6 @@
             margin-bottom: 10px;
         }
 
-        /* Clock styling */
         #clock {
             font-size: 1.5em;
             font-weight: bold;
@@ -41,7 +39,6 @@
             color: #ff5555;
         }
 
-        /* Search bar styling */
         .search-bar {
             display: flex;
             justify-content: center;
@@ -56,79 +53,79 @@
             display: flex;
             align-items: center;
             width: 100%;
-            background-color: #444; /* Consistent background for elegance */
+            background-color: #444;
             border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         .search-bar input[type="text"] {
             flex-grow: 1;
-            padding: 12px 15px; /* Increased padding for better touch target */
+            padding: 12px 15px;
             border: none;
-            background-color: #444; /* Same as form for a seamless look */
+            background-color: #444; 
             color: #fff;
             outline: none;
             font-size: 16px;
-            border-radius: 25px 0 0 25px; /* Rounded corners for seamless look */
-            transition: background-color 0.3s ease; /* Transition for background color */
+            border-radius: 25px 0 0 25px; 
+            transition: background-color 0.3s ease;
         }
 
         .search-bar input[type="text"]:focus {
-            background-color: #555; /* Darker on focus */
+            background-color: #555; 
         }
 
-        /* Search Button Styling */
+       
         .search-button {
-            background-color: #ff5555; /* Red color for the button */
+            background-color: #ff5555; 
             border: none;
             color: #fff;
             padding: 10px;
             cursor: pointer;
             font-size: 18px;
-            width: 50px; /* Fixed width for a circular look */
-            height: 50px; /* Fixed height for a circular look */
-            border-radius: 50%; /* Fully rounded button */
+            width: 50px; 
+            height: 50px; 
+            border-radius: 50%; 
             display: flex;
             align-items: center;
-            justify-content: center; /* Center icon in the button */
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transition for background and scale */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Initial shadow */
+            justify-content: center; 
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
         }
 
         .search-button:hover {
-            background-color: #ff3333; /* Darker red on hover */
-            transform: scale(1.1); /* Scale up on hover */
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+            background-color: #ff3333; 
+            transform: scale(1.1); 
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); 
         }
 
-        /* Link styling */
+        
         a {
             display: inline-block;
-            margin-top: 20px; /* Adjusted spacing to move it further down */
+            margin-top: 20px; 
             padding: 10px 20px;
             background-color: #ff5555;
             color: #000;
             border-radius: 5px;
             text-decoration: none;
             font-size: 16px;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for effects */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Initial shadow */
-            margin-left: 5px; /* Reduced spacing between buttons */
-            margin-right: 5px; /* Reduced spacing between buttons */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+            margin-left: 5px; 
+            margin-right: 5px; 
         }
 
         a:hover {
-            background-color: #ff3333; /* Darker red on hover */
-            transform: scale(1.05); /* Scale up on hover */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+            background-color: #ff3333; 
+            transform: scale(1.05); 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
-        /* Compatibility for older browsers */
+        
         @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-            /* Styles specific for older browsers */
+            
             .search-button {
-                filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)); /* Shadow effect */
+                filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)); 
             }
         }
     </style>
@@ -142,35 +139,29 @@
             document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
         }
 
-        setInterval(updateClock, 1000); // Update the clock every second
+        setInterval(updateClock, 1000);
         window.onload = updateClock;
     </script>
 </head>
 <body>
     <header>
-        <!-- Profile Picture -->
         <img src="img/pfp.jpg" alt="Peaks2000" class="profile-pic">
         <h1>Welcome to Peaks2000.com</h1>
     </header>
 
-    <!-- Clock -->
     <div id="clock"></div>
 
-    <!-- Search Bar -->
     <div class="search-bar">
         <form action="https://duckduckgo.com/" method="get">
             <input type="text" name="q" placeholder="Search with DuckDuckGo">
-            <button type="submit" class="search-button">🔍</button> <!-- Styled as a red circular button -->
+            <button type="submit" class="search-button">🔍</button> 
         </form>
     </div>
 
-    <!-- Mobile Site Button -->
     <a href="mobile.htm">Mobile Site (Beta)</a>
     
-    <!-- Play Pacman Button -->
     <a href="pacman.htm">Play Classic Pacman Game</a>
     
-    <!-- Open OG Page Button -->
     <a href="OG.htm">Open OG Page</a>
 </body>
 </html>
